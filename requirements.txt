@@ -1,13 +1,11 @@
 alembic==1.0.0
 apturl==0.5.2
-asn1crypto==0.24.0
 blinker==1.4
 Brlapi==0.6.6
 certifi==2018.1.18
 chardet==3.0.4
 Click==7.0
 command-not-found==0.3
-cryptography==2.1.4
 cupshelpers==1.0
 defer==1.0.6
 distro-info==0.18
@@ -44,7 +42,6 @@ Pillow==5.1.0
 protobuf==3.0.0
 psycopg2==2.7.5
 pycairo==1.16.2
-pycrypto==2.6.1
 pycups==1.9.73
 pygobject==3.26.1
 pymacaroons==0.13.0
