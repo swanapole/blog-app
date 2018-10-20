@@ -1,0 +1,39 @@
+{% macro displayPitches(pitches_list)%}
+    {%for pitch in pitches_list%}
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div style="border: 1px solid #fca3b7; border-radius: 5px; padding: 10px; font-size:16px; margin: 10px;">
+              <h4>{{pitch.pitch_title}}</h4>
+              <p>{{pitch.pitch_content| truncate(100)}}</p>
+              <p>Written by:  {{pitch.user.username}} <br> <a href="/pitch/{{pitch.id}}" class="btn btn-primary" style="margin-top: 10px; background-color: #fca3b7; color: #000; border:none;">View Pitch</a> </p>
+        </div>
+      </div>
+    {%endfor%}
+{%endmacro%}
+
+{%macro displayComments(comments_list)%}
+    {%for comment in comments_list%}
+        <div class="col-md-6">
+            <h5>{{comment.name}}</h5>
+            <p>{{comment.comment}}</p>
+            <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#deleteModal">Delete Comment</button>
+        </div>
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Delete Comment?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <form action="" method="POST">
+                <input type="submit" class="btn btn-danger" value="Delete">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%endfor%}
+{%endmacro%}
