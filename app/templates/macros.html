@@ -1,10 +1,10 @@
-{% macro displayPitches(pitches_list)%}
-    {%for pitch in pitches_list%}
+{% macro displayBlogs(blogs_list)%}
+    {%for blog in blogs_list%}
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div style="border: 1px solid #fca3b7; border-radius: 5px; padding: 10px; font-size:16px; margin: 10px;">
-              <h4>{{pitch.pitch_title}}</h4>
-              <p>{{pitch.pitch_content| truncate(100)}}</p>
-              <p>Written by:  {{pitch.user.username}} <br> <a href="/pitch/{{pitch.id}}" class="btn btn-primary" style="margin-top: 10px; background-color: #fca3b7; color: #000; border:none;">View Pitch</a> </p>
+              <h4>{{blog.blog_title}}</h4>
+              <p>{{blog.blog_content| truncate(100)}}</p>
+              <p>Written by:  {{blog.user.username}} <br> <a href="/blog/{{blog.id}}" class="btn btn-primary" style="margin-top: 10px; background-color: #fca3b7; color: #000; border:none;">View Blog</a> </p>
         </div>
       </div>
     {%endfor%}
@@ -15,7 +15,7 @@
         <div class="col-md-6">
             <h5>{{comment.name}}</h5>
             <p>{{comment.comment}}</p>
-            <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#deleteModal">Delete Comment</button>
+            <button style="background-color: #fff;border:1px solid #fca3b7;color:#000;" onmouseover="this.style.backgroundColor='#fca3b7'" onmouseout="this.style.backgroundColor='#fff'" type="button" class="btn btn-sm" data-toggle="modal" data-target="#">Delete Comment</button>
         </div>
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

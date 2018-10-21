@@ -11,7 +11,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="{{url_for('main.pitches')}}" style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'">Recent Posts</a></li>
+        <li><a href="{{url_for('main.blogs')}}" style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'">Recent Posts</a></li>
         {% if current_user.is_authenticated %}
         <li><a href="/" style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'">Home</a></li>
         {% else %}
@@ -24,9 +24,9 @@
 
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-        <li><a href="{{url_for('main.new_pitch')}}" style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'">New Blog</a></li>
+        <li><a href="{{url_for('main.new_blog')}}" style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'">New Blog</a></li>
         <li><a style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'" href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-        <li><a style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'" href="{{url_for('main.user_pitches',uname=current_user.username)}}">My Blogs</a></li>
+        <li><a style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'" href="{{url_for('main.user_blogs',uname=current_user.username)}}">My Blogs</a></li>
         <li><a style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'" href="{{url_for('auth.logout')}}">Logout</a></li>
         {% else %}
         <li><a style="color: #fca3b7;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#fca3b7'"  href="{{url_for('auth.login')}}">Admin</a></li>
