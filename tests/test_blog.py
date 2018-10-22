@@ -4,6 +4,10 @@ import unittest
 
 class BlogTest(unittest.TestCase):
     def setUp(self):
+<<<<<<< HEAD
+=======
+        self.new_user = User(username = 'Jane', password = 'banana', email = 'janedoe@demo.com')
+>>>>>>> 3da6435afca463209b28d928ecfc1937a2af5343
         self.new_blog = Blog(id = 123, blog_title = 'Blog', blog_content = 'Blog content',category = 'health')
 
     def tearDown(self):
