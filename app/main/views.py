@@ -116,14 +116,14 @@ def delete_blog(id):
 
     return render_template('blogs.html', id=id, blog = blog)
 
-@main.route('/comment/delete/<int:blog>', methods = ['GET', 'POST'])
+@main.route('/blog/comment/delete/<int:id>', methods = ['GET', 'POST'])
 @login_required
-def delete_comment(blog):
-    comment = Comment.get_comments(blog)
-    db.session.delete(comment)
-    db.session.commit()
+def delete_comment(id):
+    comment = Comment.query.filter_by(id=id).first()
+    blog_id = comment.blog
+    Comment.delete_comment(id)
 
-    return render_template('blog.html', blog=blog, comment = comment)
+    return redirect(url_for('main.blog',id=blog_id))
 
 @main.route('/blog/<int:id>', methods = ["GET","POST"])
 def blog(id):
@@ -180,17 +180,6 @@ def subscriber():
 
     return render_template('subscribe.html',subscriber=subscriber,subscriber_form=subscriber_form,blog=blog)
 
-
-# @main.route('/comment/delete/<int:blog>', methods=['GET', 'POST'])
-# @login_required
-# def delete_comment(blog):
-#     blog = Blog.query.filter_by(id=blog).first()
-#     comment = Comment.query.filter_by(blog = blog).first()
-#
-#     db.session.delete(comment)
-#     db.session.commit()
-#
-#     return redirect(url_for('main.blog', comment=comment, blog=blog))
 
 @main.route('/blog/<int:id>/update', methods = ['GET','POST'])
 @login_required
